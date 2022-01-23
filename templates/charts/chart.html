@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta content="IE=edge" http-equiv="X-UA-Compatible">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>BCT Line Chart 01</title>
+  <link href="https://playground.anychart.com/docs/samples/BCT_Line_Chart_01/iframe" rel="canonical">
+  <meta content="Line Chart" name="keywords">
+  <meta content="AnyChart - JavaScript Charts designed to be embedded and integrated" name="description">
+  <!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+  <link href="https://cdn.anychart.com/releases/8.10.0/css/anychart-ui.min.css?hcode=a0c21fc77e1449cc86299c5faa067dc4" rel="stylesheet" type="text/css">
+  <style>html, body, #container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+    g#ac_layer_1ac0ef12_p {
+        display: none;
+    }
+</style>
+ </head>
+ <body>
+    
+  <div id="container"></div>
+  <script src="https://cdn.anychart.com/releases/8.10.0/js/anychart-base.min.js?hcode=a0c21fc77e1449cc86299c5faa067dc4"></script>
+  <script src="https://cdn.anychart.com/releases/8.10.0/js/anychart-exports.min.js?hcode=a0c21fc77e1449cc86299c5faa067dc4"></script>
+  <script src="https://cdn.anychart.com/releases/8.10.0/js/anychart-ui.min.js?hcode=a0c21fc77e1449cc86299c5faa067dc4"></script>
+  <script> var usman = {{ b|tojson }}; </script>
+  <script type="text/javascript">anychart.onDocumentReady(function () {
+
+    // create data
+    var data = usman;
+
+    // create a chart
+    var chart = anychart.line();
+
+    // create a line series and set the data
+    var series = chart.line(data);
+    
+    // set the chart title
+    chart.title("Line Chart: Basic Sample");
+
+    // set the titles of the axes
+    var xAxis = chart.xAxis();
+    xAxis.title("Month");
+    var yAxis = chart.yAxis();
+    yAxis.title("Sales, $");
+
+    // set the container id
+    chart.container("container");
+
+    // initiate drawing the chart
+    chart.draw();
+});</script>
+
+ </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.css'/>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/c3/0.4.11/c3.min.js'></script>
+{{b}}
+<script> var usman = {{ b|tojson }}; </script>
+<div id="chart"></div>
+<script type="text/javascript">
+  /* http://stackoverflow.com/questions/43594329/multi-line-chart-from-mysql-data-c3 */
+
+
+(function() {
+    /*
+        1: Prepare a chart which will show hours of the day along the x-axis
+    */
+    var xHours = ['myXValues', "00:00", "01:00", "02:00", "03:00", "04:00", "05:00", "06:00", "07:00", "08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00", "23:00"],
+        //http://czcodezone.blogspot.no/2014/12/c3-formatting-for-yyyy-mm-dd-hhmmss-for.html
+        timeFormat = '%H:%M';
+
+    var chart = c3.generate({
+        bindto: '#chart',
+        data: {
+            x: 'myXValues',
+            xFormat: timeFormat,
+            columns: [
+                //xHours,
+                //['data1', 30, 200, 100, 400, 150, 250],
+            ]
+        },
+        axis: {
+            x: {
+                type: 'timeseries',
+                tick: {
+                    format: timeFormat
+                }
+            }
+        }
+    });
+
+    /*
+        2: Iterate over the data, and create one data series per day
+    */
+    var history = [{"hour":"00:00:00","day":"2017-04-18","kpi":"41.54"},{"hour":"01:00:00","day":"2017-04-18","kpi":"0.00"},{"hour":"02:00:00","day":"2017-04-18","kpi":"0.00"},{"hour":"03:00:00","day":"2017-04-18","kpi":"0.00"},{"hour":"04:00:00","day":"2017-04-18","kpi":"0.00"},{"hour":"05:00:00","day":"2017-04-18","kpi":"0.00"},{"hour":"06:00:00","day":"2017-04-18","kpi":"31.94"},{"hour":"07:00:00","day":"2017-04-18","kpi":"47.44"},{"hour":"08:00:00","day":"2017-04-18","kpi":"35.05"},{"hour":"09:00:00","day":"2017-04-18","kpi":"43.24"},{"hour":"10:00:00","day":"2017-04-18","kpi":"32.40"},{"hour":"11:00:00","day":"2017-04-18","kpi":"32.03"},{"hour":"12:00:00","day":"2017-04-18","kpi":"37.22"},{"hour":"13:00:00","day":"2017-04-18","kpi":"30.85"},{"hour":"14:00:00","day":"2017-04-18","kpi":"36.12"},{"hour":"15:00:00","day":"2017-04-18","kpi":"42.87"},{"hour":"16:00:00","day":"2017-04-18","kpi":"42.38"},{"hour":"17:00:00","day":"2017-04-18","kpi":"41.33"},{"hour":"18:00:00","day":"2017-04-18","kpi":"39.58"},{"hour":"19:00:00","day":"2017-04-18","kpi":"36.22"},{"hour":"20:00:00","day":"2017-04-18","kpi":"35.20"},{"hour":"21:00:00","day":"2017-04-18","kpi":"35.76"},{"hour":"22:00:00","day":"2017-04-18","kpi":"42.42"},{"hour":"23:00:00","day":"2017-04-18","kpi":"28.41"},{"hour":"00:00:00","day":"2017-04-19","kpi":"44.88"},{"hour":"01:00:00","day":"2017-04-19","kpi":"0.00"},{"hour":"02:00:00","day":"2017-04-19","kpi":"0.00"},{"hour":"03:00:00","day":"2017-04-19","kpi":"0.00"},{"hour":"04:00:00","day":"2017-04-19","kpi":"0.00"},{"hour":"05:00:00","day":"2017-04-19","kpi":"0.00"},{"hour":"06:00:00","day":"2017-04-19","kpi":"38.75"},{"hour":"07:00:00","day":"2017-04-19","kpi":"40.03"},{"hour":"08:00:00","day":"2017-04-19","kpi":"37.36"}],
+        date = history[0].day,
+        dayData = usman;
+
+    chart.load({
+        columns: [ xHours, dayData ]
+    });
+
+})();
+
+</script> -->
